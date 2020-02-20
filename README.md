@@ -16,7 +16,7 @@ Role Variables
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
-| name | desc | type | default | required |
+| `sudoers_commands` | Array of files to add to /etc/sudoers.d/ directory | array | "" | yes |
 
 Dependencies
 ------------
@@ -30,6 +30,11 @@ Example Playbook
 - hosts: all
   roles:
     - role: ansible-role-sudoers-d
+      vars:
+        sudoers_commands:
+          - user: test_user
+            commands: /usr/bin/pwd
+            dest: /etc/sudoers.d/pwd
 ```
 
 License
