@@ -1,0 +1,7 @@
+---
+- name: Create files in {{ item.dest }}
+  template:
+    src: sudoers_template
+    dest: "{{ item.dest }}"
+    validate: /usr/sbin/visudo -cf %s
+  loop: "{{ sudoers_commands }}"

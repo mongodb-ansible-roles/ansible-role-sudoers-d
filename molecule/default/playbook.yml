@@ -1,0 +1,11 @@
+---
+- become: true
+  name: Converge
+  hosts: all
+  roles:
+    - role: ansible-role-sudoers-d
+      vars:
+        sudoers_commands:
+          - user: test
+            commands: /usr/bin/pwd
+            dest: /etc/sudoers.d/pwd

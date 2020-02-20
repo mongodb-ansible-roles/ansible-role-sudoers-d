@@ -1,0 +1,8 @@
+---
+- gather_facts: false
+  name: Setup
+  hosts: all
+  tasks:
+    - name: Create test user
+      user:
+        name: test
